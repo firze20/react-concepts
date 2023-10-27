@@ -1,18 +1,24 @@
-import { useState } from 'react'
-import './App.css'
+//No need for useState
+import "./App.css";
 
 function App() {
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    console.log(typeof e);
+
     const formData = new FormData(e.currentTarget);
-    
-    const email = formData.get('email');
 
-    console.log(email)
+    const email = formData.get("email");
 
-  }
+    //for every single form data item
+
+    for (let [key, value] of formData.entries()) {
+      console.log({ key, value });
+    }
+
+    console.log(email);
+  };
 
   return (
     <main>
@@ -46,4 +52,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
